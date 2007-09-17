@@ -17,6 +17,7 @@
 %define api_version	2
 %define lib_major	0
 %define lib_name	%mklibname bonoboui %{api_version} %{lib_major}
+%define develname %mklibname -d bonoboui %{api_version}
 
 # define to use Xvfb
 %define build_xvfb 1
@@ -28,7 +29,7 @@
 
 Name:		libbonoboui
 Summary:	Library for compound documents in GNOME
-Version: 	2.19.6
+Version: 	2.20.0
 Release:	%mkrel 1
 License:	LGPL
 URL:		http://www.gnome.org/
@@ -82,7 +83,7 @@ spreadsheet and graphic embedded in a word-processing document.
 This package provides libraries to use Bonobo.
 
 
-%package -n %{lib_name}-devel
+%package -n %develname
 Summary:	Static libraries, include files and sample code for Bonobo 2
 Group:		Development/GNOME and GTK+
 Provides:	%{name}%{api_version}-devel = %{version}-%{release}
@@ -93,8 +94,9 @@ Requires:	libgnomecanvas2-devel >= %{req_libgnomecanvas_version}
 Requires:	libgnome2-devel >= %{req_libgnome_version}
 Requires:	libbonobo2_x-devel >= %{req_libbonobo_version}
 Requires:	gtk+2-devel >= %{req_gtk_version}
+Obsoletes: %mklibname -d bonoboui 2 0
 
-%description -n %{lib_name}-devel
+%description -n %develname
 Bonobo is a library that provides the necessary framework for GNOME
 applications to deal with compound documents, i.e. those with a
 spreadsheet and graphic embedded in a word-processing document.
@@ -155,9 +157,9 @@ rm -rf %{buildroot}
 %files -n %{lib_name}
 %defattr(-, root, root)
 %doc README NEWS
-%{_libdir}/libbonobo*.so.*
+%{_libdir}/libbonoboui-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %develname
 %defattr(-, root, root)
 %doc ChangeLog
 %doc %{_datadir}/gtk-doc/html/*
