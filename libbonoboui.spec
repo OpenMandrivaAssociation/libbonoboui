@@ -30,13 +30,18 @@
 Name:		libbonoboui
 Summary:	Library for compound documents in GNOME
 Version: 	2.23.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+ and LGPLv2+
 URL:		http://www.gnome.org/
 Group:		System/Libraries
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# From upstream SVN (rev 2632): Use GType and the G_TYPE_* macros
+# instead of the deprecated GtkType and GTK_* macros. Allows building
+# libbonoboui using programmes with GTK_DISABLE_DEPRECATED again.
+# - AdamW 2008/07
+Patch0:		libbonoboui-2.23.4-gtype.patch
 BuildRequires:	libgnomecanvas2-devel >= %{req_libgnomecanvas_version}
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
 BuildRequires:	libbonobo2_x-devel >= %{req_libbonobo_version}
@@ -108,6 +113,7 @@ it includes demonstration executables and codes as well.
 
 %prep
 %setup -q
+%patch0 -p0 -b .gtype
 
 %build
 
