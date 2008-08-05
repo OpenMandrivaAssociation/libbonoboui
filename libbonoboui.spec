@@ -49,11 +49,7 @@ BuildRequires:	intltool
 BuildRequires:	gtk-doc >= 0.9
 %endif
 %if %{build_xvfb}
-%if %mdkversion <= 200600
-BuildRequires:  XFree86-Xvfb
-%else
 BuildRequires:  x11-server-xvfb
-%endif
 %endif
 
 Requires:	%{lib_name} = %{version}
@@ -120,10 +116,7 @@ it includes demonstration executables and codes as well.
 
 %check
 %if %{build_xvfb}
-XDISPLAY=$(i=0; while [ -f /tmp/.X$i-lock ]; do i=$(($i+1)); done; echo $i)
-Xvfb :$XDISPLAY >& /dev/null &
-DISPLAY=:$XDISPLAY make check
-kill $(cat /tmp/.X$XDISPLAY-lock)
+xvfb-run -a make check
 %else
 make check
 %endif
