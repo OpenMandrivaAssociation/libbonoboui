@@ -30,7 +30,7 @@
 Name:		libbonoboui
 Summary:	Library for compound documents in GNOME
 Version: 	2.24.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+ and LGPLv2+
 URL:		http://www.gnome.org/
 Group:		System/Libraries
@@ -43,7 +43,7 @@ BuildRequires:	libbonobo2_x-devel >= %{req_libbonobo_version}
 BuildRequires:  libglade2.0-devel >= %{req_libglade_version}
 BuildRequires:  gtk+2-devel >= %{req_gtk_version}
 BuildRequires:	perl-XML-Parser
-BuildRequires:  automake1.8
+BuildRequires:  automake
 BuildRequires:	intltool
 %if %enable_gtkdoc
 BuildRequires:	gtk-doc >= 0.9
