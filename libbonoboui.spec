@@ -29,7 +29,7 @@
 
 Name:		libbonoboui
 Summary:	Library for compound documents in GNOME
-Version: 	2.24.3
+Version: 	2.24.4
 Release:	%mkrel 1
 License:	GPLv2+ and LGPLv2+
 URL:		http://www.gnome.org/
