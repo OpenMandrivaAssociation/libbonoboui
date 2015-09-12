@@ -10,7 +10,7 @@
 Summary:	Library for compound documents in GNOME
 Name:		libbonoboui
 Version:	2.24.5
-Release:	17
+Release:	18
 License:	GPLv2+ and LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org/
