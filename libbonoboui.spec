@@ -1,4 +1,5 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_lto 1
 
 %define build_xvfb 1
 %define enable_gtkdoc	1
@@ -10,7 +11,7 @@
 Summary:	Library for compound documents in GNOME
 Name:		libbonoboui
 Version:	2.24.5
-Release:	18
+Release:	19
 License:	GPLv2+ and LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org/
