@@ -2,7 +2,7 @@
 %define _disable_lto 1
 
 %define build_xvfb 1
-%define enable_gtkdoc	1
+%define enable_gtkdoc	0
 %define api	2
 %define major	0
 %define libname	%mklibname bonoboui %{api} %{major}
@@ -66,13 +66,13 @@ it includes demonstration executables and codes as well.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 %if %enable_gtkdoc
 	--enable-gtk-doc
 %endif
 
-%make
+%make_build
 
 %check
 %if %{build_xvfb}
@@ -82,7 +82,7 @@ make check
 %endif
 
 %install
-%makeinstall_std
+%make_install
 
 %find_lang %{name}-2.0
 
