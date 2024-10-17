@@ -14,7 +14,7 @@ Version:	2.24.5
 Release:	19
 License:	GPLv2+ and LGPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org/
+Url:		https://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libbonoboui/%{url_ver}/%{name}-%{version}.tar.bz2
 
 %if %enable_gtkdoc
